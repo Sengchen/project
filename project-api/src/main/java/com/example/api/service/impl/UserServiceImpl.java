@@ -10,7 +10,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User get(User user) {
-        return null;
+        return user;
     }
 
 }
