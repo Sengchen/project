@@ -34,17 +34,10 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- 该模块需要启动web服务，需要该依赖 -->
+        <!-- thymeleaf 模板引擎 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <!--client模块需要依赖server模块 -->
-        <dependency>
-            <groupId>com.example</groupId>
-            <artifactId>dubbo-provider</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
 
         <!-- common api -->
@@ -60,6 +53,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                </configuration>
             </plugin>
         </plugins>
     </build>

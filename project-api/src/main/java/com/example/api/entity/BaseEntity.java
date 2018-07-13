@@ -1,7 +1,9 @@
-package com.example.entity;
+package com.example.api.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+
+import lombok.Data;
 
 /**
  * 基础公共类
@@ -9,6 +11,7 @@ import java.util.Date;
  * @author Administrator
  *
  */
+@Data
 public class BaseEntity implements Serializable {
 
 	/**
