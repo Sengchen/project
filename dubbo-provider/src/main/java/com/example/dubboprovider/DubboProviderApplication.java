@@ -1,5 +1,6 @@
 package com.example.dubboprovider;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.Banner;
@@ -12,9 +13,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @EnableScheduling
 @ServletComponentScan
-@SpringBootApplication
-@EnableTransactionManagement
-@ImportResource("classpath:dubbo-provider.xml")
+@EnableTransactionManagement // 开启事物
+@MapperScan("com.example.api.dao") // 扫描Mapper Dao
+@ImportResource("classpath:dubbo-provider.xml") // 加载dubbo配置
+@SpringBootApplication // 
 public class DubboProviderApplication {
 
     /**
