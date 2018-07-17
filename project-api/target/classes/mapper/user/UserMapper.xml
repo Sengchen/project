@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.api.dao.user.UserDao">
 
-    <resultMap type="com.example.api.entity.User" id="userResult">
+    <resultMap type="com.example.api.entity.user.User" id="userResult">
         <result column="id" property="id"/>
         <result column="account" property="account"/>
         <result column="password" property="password"/>
     </resultMap>
     
-    <select id="get" parameterType="com.example.api.entity.User" resultType="java.lang.Integer">
+    <select id="get" parameterType="com.example.api.entity.user.User" resultType="java.lang.Integer">
         select count(0)
     </select>
 </mapper>

@@ -40,7 +40,7 @@
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
 
-        <!-- common api -->
+        <!-- project api -->
         <dependency>
             <groupId>com.example</groupId>
             <artifactId>project-api</artifactId>

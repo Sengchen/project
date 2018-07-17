@@ -1,4 +1,6 @@
-package com.example.api.entity;
+package com.example.api.entity.user;
+
+import com.example.api.entity.DataEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -5,12 +5,9 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-    <!-- dubbo注解扫描包名 -->
-    <!--<dubbo:annotation package="cn.zhangxd.platform.system.provider"/> -->
-
     <dubbo:protocol name="dubbo" />
 
-    <!-- 声明需要暴露的服务接口 -->
-    <bean id="userService" class="com.example.api.service.impl.UserServiceImpl"></bean>
-    <dubbo:service interface="com.example.api.service.UserService" ref="userService" protocol="dubbo" timeout="5000" />
+    <!-- 使用注解方式暴露接口 -->
+    <dubbo:annotation package="com.example.api.serviceimpl" />
+
 </beans>

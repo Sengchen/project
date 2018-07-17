@@ -25,7 +25,6 @@
         <module>dubbo-provider</module>
         <module>dubbo-client</module>
         <module>project-api</module>
-        <module>project-dao</module>
     </modules>
 
     <!-- repository -->
