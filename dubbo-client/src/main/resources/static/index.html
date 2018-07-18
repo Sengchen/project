@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="@{bootstrap-3.3.7/css/bootstrap.min.css}">
+
+<script type="text/javascript" src="@{bootstrap-3.3.7/js/bootstrap.min.js}"></script>
+
+<script type="text/javascript">
+	var rootUrl = /*[[@{/}]]*/'';
+</script>
+
+<title>首页</title>
+</head>
+<body>
+	<div th:utext="${ctx}"></div>
+	<a th:href="${ctx}"></a>
+	<input th:value="${ctx}">
+	<p th:text="#{ctx}"></p>
+	<a th:href="#ctx.locale"> </a> [[${#request.getContextPath()}]]
+</body>
+</html>

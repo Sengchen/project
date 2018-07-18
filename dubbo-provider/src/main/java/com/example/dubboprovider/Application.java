@@ -17,18 +17,18 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @MapperScan("com.example.api.dao") // 扫描Mapper Dao
 @ImportResource("classpath:dubbo-provider.xml") // 加载dubbo配置
 @SpringBootApplication // 
-public class DubboProviderApplication {
+public class Application {
 
     /**
      * Logger
      */
-    private static final Logger logger = LoggerFactory.getLogger(DubboProviderApplication.class);
+    private static final Logger logger = LoggerFactory.getLogger(Application.class);
 
     public static void main(String[] args) {
-        SpringApplication application = new SpringApplication(DubboProviderApplication.class);
+        SpringApplication application = new SpringApplication(Application.class);
         application.setRegisterShutdownHook(false);
-        application.setBannerMode(Banner.Mode.OFF);
+        application.setBannerMode(Banner.Mode.CONSOLE);
         application.run(args);
-        logger.info("Service provider started!!!");
+        logger.info("dubbo-provider started!");
     }
 }

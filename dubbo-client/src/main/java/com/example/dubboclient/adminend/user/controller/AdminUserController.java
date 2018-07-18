@@ -16,7 +16,7 @@ import com.example.api.service.user.UserService;
  */
 @Controller
 @RequestMapping(value = "/admin/u")
-public class UserController extends BaseController{
+public class AdminUserController extends BaseController{
     
     @Reference
     private UserService userService;

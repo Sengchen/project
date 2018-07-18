@@ -7,19 +7,23 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ImportResource;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
-@SpringBootApplication
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
+@EnableScheduling
+@ComponentScan(basePackages = "com.example.dubboclient.config")
 @ImportResource("classpath:dubbo-consumer.xml")
-public class DubboClientApplication {
+@SpringBootApplication
+public class Application {
     
-    private static final Logger logger = LoggerFactory.getLogger(DubboClientApplication.class);
+    private static final Logger logger = LoggerFactory.getLogger(Application.class);
 
     public static void main(String[] args) {
-        SpringApplication application = new SpringApplication(DubboClientApplication.class);
-        application.setBannerMode(Banner.Mode.OFF);
+        SpringApplication application = new SpringApplication(Application.class);
+        application.setBannerMode(Banner.Mode.CONSOLE);
         application.run(args);
-        logger.info("Web admin started!!!");
+        logger.info("dubbo-client started!");
     }
 }

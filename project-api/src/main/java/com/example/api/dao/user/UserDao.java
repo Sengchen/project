@@ -8,6 +8,4 @@ import com.example.api.entity.user.User;
 @Mapper
 public interface UserDao extends CrudDao<User> {
 
-    public int get();
-
 }

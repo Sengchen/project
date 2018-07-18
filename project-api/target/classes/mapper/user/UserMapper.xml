@@ -6,9 +6,19 @@
         <result column="id" property="id"/>
         <result column="account" property="account"/>
         <result column="password" property="password"/>
+        <collection property="roles" ofType="com.example.api.entity.user.Role">
+            <result column="name" property="name"/>
+        </collection>
     </resultMap>
     
-    <select id="get" parameterType="com.example.api.entity.user.User" resultType="java.lang.Integer">
-        select count(0)
+    <select id="get" parameterType="com.example.api.entity.user.User" resultMap="userResult">
+        SELECT u.*, r.name
+        FROM sys_user su
+        LEFT JOIN sys_role_user sru on su.id = sru.sys_user_id
+        LEFT JOIN sys_role sr on sru.sys_role_id = sr.id
+        WHERE
+        <if test="account != null and account != ''">
+            su.account = #{account}
+        </if>
     </select>
 </mapper>

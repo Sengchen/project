@@ -9,17 +9,24 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.api.entity.Constants;
+
+/**
+ * 拦截器
+ * @author Administrator
+ *
+ */
 @Component
-public class LoginInterceptor implements HandlerInterceptor {
+public class MyInterceptor implements HandlerInterceptor {
 
     /*
      * @Autowired private RedisUtil redisUtil;
      */
-    private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
+    private static final Logger logger = LoggerFactory.getLogger(MyInterceptor.class);
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-            throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        request.setAttribute("ctx", Constants.contextPath);
         return true;
     }
 
@@ -30,8 +37,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     }
 
     @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
-            throws Exception {
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
 
     }
 }

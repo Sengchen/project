@@ -1,5 +1,7 @@
 package com.example.api.entity.user;
 
+import java.util.List;
+
 import com.example.api.entity.DataEntity;
 
 import lombok.AllArgsConstructor;
@@ -22,7 +24,5 @@ public class User extends DataEntity {
 	
 	private String password;
 	
-	private int role;
-	
-	
+	private List<Role> roles;
 }

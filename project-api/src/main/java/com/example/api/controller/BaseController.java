@@ -9,4 +9,8 @@ public class BaseController {
     public String getAdminView(String view) {
         return ADMIN_PAGE_PATH + view;
     }
+    
+    public String getFrontView(String view) {
+        return FRONT_PAGE_PATH + view;
+    }
 }
