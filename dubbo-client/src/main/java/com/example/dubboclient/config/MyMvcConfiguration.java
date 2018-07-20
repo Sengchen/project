@@ -1,5 +1,7 @@
 package com.example.dubboclient.config;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -14,7 +16,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  *
  */
 @Configuration
-public class MvcConfiguration extends WebMvcConfigurerAdapter {
+public class MyMvcConfiguration extends WebMvcConfigurerAdapter {
+    
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private MyInterceptor loginInterceptor;
@@ -26,9 +30,8 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/u/home").setViewName("user/home");
-        registry.addViewController("/").setViewName("user/home");
-        registry.addViewController("/login").setViewName("user/login");
+        registry.addViewController("/").setViewName("index");
+        registry.addViewController("/tologin").setViewName("frontend/user/login");
     }
 
     @Override

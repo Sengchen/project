@@ -11,8 +11,6 @@ public class UserController extends BaseController{
     
     private final String FRONT_USER_HOME = getFrontView("user/home");
 
-    
-    
     @RequestMapping(value = "/home")
     public String home() {
         return FRONT_USER_HOME;

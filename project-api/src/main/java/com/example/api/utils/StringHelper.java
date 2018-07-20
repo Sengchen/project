@@ -3,6 +3,7 @@ package com.example.api.utils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.nio.charset.Charset;
+import java.security.MessageDigest;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -171,5 +172,32 @@ public class StringHelper extends StringUtils {
     public static String trimToDefault(final String str, String defaultValue) {
         final String ts = trim(str);
         return isEmpty(ts) ? defaultValue : ts;
+    }
+    
+    /**
+     * MD5 encode
+     * @param s
+     * @return
+     */
+    public static String MD5encode(String s) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] bytes = md.digest(s.getBytes("utf-8"));
+            return toHex(bytes);
+        }
+        catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static String toHex(byte[] bytes) {
+
+        final char[] HEX_DIGITS = "0123456789ABCDEF".toCharArray();
+        StringBuilder ret = new StringBuilder(bytes.length * 2);
+        for (int i=0; i<bytes.length; i++) {
+            ret.append(HEX_DIGITS[(bytes[i] >> 4) & 0x0f]);
+            ret.append(HEX_DIGITS[bytes[i] & 0x0f]);
+        }
+        return ret.toString();
     }
 }

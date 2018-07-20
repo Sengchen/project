@@ -18,7 +18,7 @@ import com.example.api.service.user.UserService;
 @RequestMapping(value = "/admin/u")
 public class AdminUserController extends BaseController{
     
-    @Reference
+    @Reference(version = "0.0.1")
     private UserService userService;
     
     private final String LOGIN_PAGE = "user/login";

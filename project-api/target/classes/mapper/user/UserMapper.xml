@@ -12,7 +12,7 @@
     </resultMap>
     
     <select id="get" parameterType="com.example.api.entity.user.User" resultMap="userResult">
-        SELECT u.*, r.name
+        SELECT su.*, sr.name
         FROM sys_user su
         LEFT JOIN sys_role_user sru on su.id = sru.sys_user_id
         LEFT JOIN sys_role sr on sru.sys_role_id = sr.id

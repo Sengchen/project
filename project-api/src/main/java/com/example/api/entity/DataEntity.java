@@ -2,6 +2,7 @@ package com.example.api.entity;
 
 import java.util.Date;
 
+import org.apache.commons.lang3.StringUtils;
 import org.hibernate.validator.constraints.Length;
 
 import com.example.api.utils.RandomHelper;
@@ -38,10 +39,9 @@ public abstract class DataEntity extends BaseEntity {
 
     public DataEntity() {
         super();
-        this.delFlag = DEL_FLAG_NORMAL;
     }
 
-    public DataEntity(String id) {
+    public DataEntity(Long id) {
         super(id);
     }
 
@@ -52,7 +52,7 @@ public abstract class DataEntity extends BaseEntity {
     public void preInsert() {
         // 不限制ID为UUID，调用setIsNewRecord()使用自定义ID
         if (this.getIsNewRecord()) {
-            setId(RandomHelper.uuid());
+//            setId(RandomHelper.uuid());
         }
         this.updateDate = new Date();
         this.createDate = this.updateDate;
@@ -85,6 +85,9 @@ public abstract class DataEntity extends BaseEntity {
     @JsonIgnore
     @Length(min = 1, max = 1)
     public String getDelFlag() {
+        if(StringUtils.isBlank(delFlag)) {
+            this.delFlag = DEL_FLAG_NORMAL;
+        }
         return delFlag;
     }
 

@@ -21,7 +21,7 @@ public abstract class BaseEntity implements Serializable {
     /**
      * 实体编号（唯一标识）
      */
-    private String id;
+    private Long id;
 
     private long creater;
 
@@ -37,16 +37,16 @@ public abstract class BaseEntity implements Serializable {
 
     }
 
-    public BaseEntity(String id) {
+    public BaseEntity(long id) {
         this();
         this.id = id;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -84,7 +84,7 @@ public abstract class BaseEntity implements Serializable {
      */
     @JsonIgnore
     public boolean getIsNewRecord() {
-        return isNewRecord || StringUtils.isBlank(getId());
+        return isNewRecord || id == null;
     }
 
     /**
