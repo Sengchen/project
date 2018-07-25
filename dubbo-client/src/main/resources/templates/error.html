@@ -1,21 +1,23 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
 <body>
-    <h1>Support Friendly Error Page</h1>
+	<h1>Support Friendly Error Page</h1>
 
-    <!--  As we are using Thymeleaf, you might consider using
+	<!--  As we are using Thymeleaf, you might consider using
           ${#httpServletRequest.requestURL}. But that returns the path
           to this error page.  Hence we explicitly add the url to the
           Model in some of the example code. -->
-    <p>error</p>
+	<p>error</p>
 
-    <!--
+	[[${param.error}]]
+	<!--
       // Hidden Exception Details  - this is not a recommendation, but here is
       // how you hide an exception in the page using Thymeleaf
       -->
-    <div th:utext="'&lt;!--'" th:remove="tag"></div>
-    <div th:utext="'--&gt;'" th:remove="tag"></div>
+	<div th:utext="'&lt;!--'" th:remove="tag"></div>
+	<div th:utext="'--&gt;'" th:remove="tag"></div>
 
 </body>
 </html>

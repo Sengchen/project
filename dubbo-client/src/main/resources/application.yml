@@ -22,4 +22,4 @@ spring:
 logging:
   path: logs
   level:
-    root: INFO
+    root: ERROR

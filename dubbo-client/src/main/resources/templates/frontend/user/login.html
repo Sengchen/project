@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,16 +39,18 @@ body {
 			<p th:if="${param.logout}" class="bg-warning">已成功注销</p>
 			<!-- 1 -->
 			<p th:if="${param.error}" class="bg-danger">有错误，请重试</p>
-			
+
 			<!-- 2 -->
 			<h2>使用账号密码登录</h2>
-			<form name="form" th:action="@{/login}" action="/login" method="POST">
+			<form name="form" th:action="@{/login}" method="POST">
 				<!-- 3 -->
 				<div class="form-group">
-					<label for="account">账号</label> <input type="text" class="form-control" name="username" value="admin" placeholder="账号" />
+					<label for="account">账号</label> <input type="text" class="form-control" name="username" value="admin"
+						placeholder="账号" />
 				</div>
 				<div class="form-group">
-					<label for="password">密码</label> <input type="password" class="form-control" name="password" value="111111" placeholder="密码" />
+					<label for="password">密码</label> <input type="password" class="form-control" name="password" value="111111"
+						placeholder="密码" />
 				</div>
 				<input type="submit" id="login" value="Login" class="btn btn-primary" />
 			</form>

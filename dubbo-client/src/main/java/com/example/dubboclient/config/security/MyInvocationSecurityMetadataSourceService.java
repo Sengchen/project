@@ -48,8 +48,9 @@
 //     */
 //    @Override
 //    public Collection<ConfigAttribute> getAttributes(Object object) throws IllegalArgumentException {
-//        if (map == null)
+//        if (map == null) {
 //            loadResourceDefine();
+//        }
 //        // object 中包含用户请求的request 信息
 //        HttpServletRequest request = ((FilterInvocation) object).getHttpRequest();
 //        AntPathRequestMatcher matcher;
@@ -66,11 +67,14 @@
 //
 //    @Override
 //    public Collection<ConfigAttribute> getAllConfigAttributes() {
+//        // TODO Auto-generated method stub
 //        return null;
 //    }
 //
 //    @Override
 //    public boolean supports(Class<?> clazz) {
-//        return true;
+//        // TODO Auto-generated method stub
+//        return false;
 //    }
+//
 //}
