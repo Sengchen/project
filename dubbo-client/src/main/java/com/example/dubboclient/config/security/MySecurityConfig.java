@@ -42,7 +42,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated() // 任何请求, 登录后可以访问
                 .and().formLogin() // 定义当需要用户登录时候，转到的登录页面。
                 .loginPage("/login").failureUrl("/login?error=true").permitAll() // 登录页面用户任意访问
-                .and().logout().permitAll() // 注销行为任意访问
+                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/").permitAll() // 注销行为任意访问
                 .and().rememberMe().key(Constants.contextPath) // 启用 remember me
                 .and().exceptionHandling().accessDeniedPage("/403");  // 处理异常，拒绝访问就重定向到 403 页面
 //        http.addFilterBefore(myFilterSecurityInterceptor, FilterSecurityInterceptor.class);

@@ -30,10 +30,9 @@
 							<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span
 								class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#">Project name</a>
-						<div sec:authorize="isAnonymous()">
-							<a class='navbar-brand font13' th:href="@{/login}">登录</a>
-						</div>
+						<a class="navbar-brand" href="#">Project name</a> 
+						<form class="logout-form" hidden="" th:action="@{/logout}" method="post"> </form>
+						<a class='navbar-brand font14' sec:authorize="isAnonymous()" th:href="@{/login}">登录</a>
 					</div>
 					<div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav" sec:authorize="isAuthenticated()">
@@ -50,7 +49,14 @@
 									<li class="dropdown-header">Nav header</li>
 									<li><a href="#">Separated link</a></li>
 									<li><a href="#">One more separated link</a></li>
-								</ul></li>
+								</ul>
+							</li>
+							<li class="dropdown" sec:authorize="isAuthenticated()"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false">[[${username}]] <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><form class="logout-form" hidden="" th:action="@{/logout}" method="post"> </form><a href="javascript:void(0);" onclick="$('.logout-form').submit();">Logout</a></li>
+                                </ul>
+                            </li>
 						</ul>
 
 					</div>
