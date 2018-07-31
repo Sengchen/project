@@ -5,12 +5,9 @@ server:
 spring:
   application:
     name: project-provider
-  # DataSource Config
-  datasource:
-    url: jdbc:mysql://127.0.0.1:3306/project_db?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
-    username: root
-    password: root
-    driver-class-name: com.mysql.jdbc.Driver
+  profiles:
+    active: home
+  
 
 mybatis:
   config-location: classpath:mybatis-config.xml
@@ -19,3 +16,25 @@ mybatis:
 logging:
   level: 
     root: INFO
+    
+---
+# at home environment
+spring:
+  profiles: home
+  # DataSource Config
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/project_db?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+---
+# at company environment
+spring:
+  profiles: home
+  # DataSource Config
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/project_db?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
